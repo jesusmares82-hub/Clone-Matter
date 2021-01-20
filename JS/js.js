@@ -45,8 +45,8 @@ function printFormLogin() {
                   </label>
                 </div>
 
-                <button id="sign" type="submit" class="btn btn-primary">
-                  Submit
+                <button id="sign" type="submit" class="btn btn-block rounded-pill btn-primary">
+                  Login
                 </button>
               </form>`;
 }
@@ -58,15 +58,14 @@ function printFormRegister() {
   container.innerHTML = "";
   container.innerHTML += `<form id="form-register" class="form-login" action="">
                 <div class="mb-3">
-                  <label for="exampleInputName1" class="form-label"
+                  <label for="name" class="form-label"
                     >User Name</label
                   >
                   <input
                     type="text"
                     class="form-control"
                     name="name"
-                    id="exampleInputName1"
-                    aria-describedby="nameHelp"
+                    id="name"
                     required
                   />
                   
@@ -108,7 +107,7 @@ function printFormRegister() {
                   </label>
                 </div>
 
-                <button id="sign" type="submit" class="btn btn-primary">
+                <button id="sign" type="submit" class="btn btn-block rounded-pill btn-primary">
                   Submit
                 </button>
               </form>`;

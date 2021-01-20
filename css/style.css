@@ -19,3 +19,8 @@
   transition-delay: 0.4s;
   z-index: 9;
 }
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
