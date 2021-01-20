@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wallpaper-bg {
+  background-image: url("../IMG/bg-page.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+}
+
+.image {
+  width: 50%;
+  transition: transform 1.1s ease-in-out;
+  transition-delay: 0.4s;
+  z-index: 9;
+}
