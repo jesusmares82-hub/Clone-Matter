@@ -56,15 +56,12 @@ form_sendRequests.addEventListener("submit", (evento) => {
 });
 
 function loadData() {
-  let container = document.getElementById("profile-card");
   let containerWelcome = document.getElementById("welcome");
   let container2 = document.getElementById("profile-card2");
   if (userName) {
-    container.innerHTML += `${userName}`;
     containerWelcome.innerHTML += ` 👋🏻 Hello ${userName},`;
     container2.innerHTML += `${userName}`;
   } else {
-    container.innerHTML += `${userEmail}`;
     containerWelcome.innerHTML += ` 👋🏻 Hello ${userEmail},`;
     container2.innerHTML += `${userEmail}`;
   }
