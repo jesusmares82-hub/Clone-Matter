@@ -31,7 +31,7 @@
 
 .burbuja {
   border-radius: 50%;
-  background-image: url("../IMG");
+  background-image: url("../IMG/code.svg");
   opacity: 0.3;
 
   position: absolute;
@@ -62,7 +62,7 @@
   width: 40px;
   height: 40px;
   background-image: url("../IMG/mentorship.svg");
-  left: 15%;
+  left: 20%;
   animation-duration: 5s;
   animation-delay: 2s;
 }
@@ -116,7 +116,7 @@
   width: 65px;
   height: 65px;
   background-image: url("../IMG/listening.svg");
-  left: 51%;
+  left: 61%;
   animation-duration: 3s;
   animation-delay: 2s;
 }

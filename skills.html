@@ -24,8 +24,9 @@
       rel="stylesheet"
     />
 
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+    <!-- Custom styles for this sidebar-->
+    <link href="css/sidebar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/components.css">
   </head>
 
   <body id="page-top">
@@ -37,21 +38,25 @@
         id="accordionSidebar"
       >
         <!-- Sidebar - Brand -->
-        <a
+        <div
           class="sidebar-brand d-flex align-items-center justify-content-between"
-          href="index.html"
+          
         >
-          <div class="sidebar-brand-text mx-3">
+        <a href="home.html">
+          <div class="sidebar-brand-text ">
             <img
-              class="sidebar-card-illustration mb-2"
+              class="sidebar-card-illustration "
               src="./IMG/matter-logo.png"
               alt="Log Out"
             />
           </div>
-          <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-bell"></i>
+         </a> 
+         <a class="sidebar-brand" href="index.html">
+          <div class="sidebar-brand-icon ">
+            <i class="fas fa-sign-out-alt"></i>
           </div>
-        </a>
+          </a> 
+        </div>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0" />
@@ -94,7 +99,7 @@
             <div
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
-              <h1 class="h3 mb-0 text-gray-800">Skills</h1>
+              <h2 class="h3 mt-4  text-gray-800">Skills</h2>
             </div>
 
             <!-- Content Row -->
@@ -252,7 +257,7 @@
                   
                   
                   <!-- Card Body -->
-                  <div class="card-body  bg-gradient-warning text-dark">
+                  <div class="card-body card-border shadow bg-gradient-warning text-dark">
                     <div class="text-center"></div>
                     <p>
                       Get started by gathering feedback on your skills from your

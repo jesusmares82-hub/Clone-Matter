@@ -24,8 +24,9 @@
       rel="stylesheet"
     />
 
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+    <!-- Custom styles for this sidebar-->
+    <link href="css/sidebar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/components.css">
   </head>
 
   <body id="page-top">
@@ -37,23 +38,25 @@
         id="accordionSidebar"
       >
         <!-- Sidebar - Brand -->
-        <a
+        <div
           class="sidebar-brand d-flex align-items-center justify-content-between"
-          href="index.html"
+          
         >
-          <div class="sidebar-brand-text mx-3">
+        <a href="home.html">
+          <div class="sidebar-brand-text ">
             <img
-              class="sidebar-card-illustration mb-2"
+              class="sidebar-card-illustration "
               src="./IMG/matter-logo.png"
               alt="Log Out"
             />
           </div>
-          
-          
-          <div class="sidebar-brand-icon rotate-n-15">
+         </a> 
+         <a class="sidebar-brand" href="index.html">
+          <div class="sidebar-brand-icon ">
             <i class="fas fa-sign-out-alt"></i>
           </div>
-        </a>
+          </a> 
+        </div>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0" />
@@ -85,20 +88,14 @@
         <div class="sidebar-card mb-5">
           <div class="row">
             <div class="col">
-              <img
+              <a href="/Profile.html"><img
                 class="sidebar-card-illustration mb-2"
                 src="./IMG/matter_profile.png"
                 alt=""
-              />
+              /></a> 
             </div>
             <div class="col">
-              <!-- Sidebar Toggler (Sidebar) -->
-              <div class="text-center d-none d-md-inline">
-                <button
-                  class="rounded-circle border-0"
-                  id="sidebarToggle"
-                ></button>
-              </div>
+             
             </div>
           </div>
         </div>
@@ -117,7 +114,7 @@
             <div
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
-              <h1 id="welcome" class="h3 mt-4 mb-0 text-gray-800"></h1>
+              <h2 id="welcome" class="h3 mt-4 mb-0 text-gray-800"></h2>
             </div>
 
             
@@ -128,7 +125,7 @@
               <!-- Card Hello -->
                 <div class="card shadow mb-4">
                   
-                  <div class="card-body bg-gradient-primary text-white">
+                  <div class="card-body card-border bg-gradient-primary text-white">
                     <h4 class="small font-weight-bold">
                       Let’s finish setting up Matter!
                     </h4>
@@ -195,12 +192,12 @@
                   </div>
                   <div class="card-body">
                     <div class="text-center">
-                      <img
+                      <a href="./Profile.html"> <img
                         class="img-fluid px-3 px-sm-4 mt-3 mb-4"
                         style="width: 7rem"
                         src="./IMG/matter_profile.png"
                         alt=""
-                      />
+                      /></a>
                       <h4 id="profile-card2" class="small font-weight-bold">
                       
                     </h4>
