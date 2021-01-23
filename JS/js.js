@@ -215,6 +215,7 @@ function loginValidate(data) {
     localStorage.setItem("user", JSON.stringify(users));
     localStorage.setItem("userAuthenticated", JSON.stringify(true));
     localStorage.setItem("flag", JSON.stringify(true));
+    localStorage.setItem("flag2", JSON.stringify(true));
     window.location = "./home.html";
   }
 

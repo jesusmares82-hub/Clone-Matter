@@ -4,15 +4,16 @@ const userEmail = JSON.parse(localStorage.getItem("userEmail"));
 userAuthenticated = JSON.parse(localStorage.getItem("userAuthenticated"));
 let email;
 flag = JSON.parse(localStorage.getItem("flag"));
+flag2 = JSON.parse(localStorage.getItem("flag2"));
 console.log(userId);
 
 function authenticated() {
   if (userAuthenticated) {
     if (flag) {
       if (userName) {
-        alert("Bienvenido " + userName + " 😀");
+        alert("Welcome " + userName + " 😀");
       } else {
-        alert("Bienvenido " + userEmail + " 😀");
+        alert("Welcome " + userEmail + " 😀");
       }
     }
     localStorage.setItem("flag", JSON.stringify(false));
@@ -68,12 +69,12 @@ function loadData() {
 }
 
 function getFeedback() {
-  let flag = true;
   fetch(`https://matter-app.herokuapp.com/api/v1/users/${userId}/invitations`)
     .then((response) => response.json())
     .then((data) => {
       data.forEach((invitation) => {
-        if (invitation.skills != null && invitation.skills.length > 0) {
+        if (invitation.skills != null || invitation.skills.length > 0) {
+          flag2 = false;
           fetch(
             `https://matter-app.herokuapp.com/api/v1/invitations/${invitation.id}/feedback`
           )
@@ -100,12 +101,11 @@ function getFeedback() {
                 });
               }
             });
-          flag = false;
-        } else if (flag) {
+        } else if (flag2) {
           let container = document.getElementById("feedback");
           container.innerHTML += `<li class="list-group-item"> <span class="ml-3"> 
                         No feedback to show 🥺</span>  </li>`;
-          flag = false;
+          flag2 = false;
         }
       });
     });
