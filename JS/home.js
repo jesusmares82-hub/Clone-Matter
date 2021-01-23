@@ -111,7 +111,6 @@ function getFeedback() {
       });
     })
     .then((e) => {
-      alert("Entro a THEN");
       if (flag2) {
         alert("Entro a if de then");
         let container = document.getElementById("feedback");
