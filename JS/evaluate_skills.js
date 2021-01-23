@@ -15,7 +15,7 @@ function authenticated() {
     localStorage.setItem("flag", JSON.stringify(false));
   } else {
     alert("No has iniciado sesión, por favor inicia sesión. 🚫");
-    window.location = "./index.html";
+    window.location.href = "./index.html";
   }
 }
 
