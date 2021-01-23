@@ -69,11 +69,15 @@ function loadData() {
 }
 
 function getFeedback() {
+  alert("Entro a getFeedback");
   fetch(`https://matter-app.herokuapp.com/api/v1/users/${userId}/invitations`)
     .then((response) => response.json())
     .then((data) => {
+      alert("Entro a getFeedback Data");
       data.forEach((invitation) => {
+        alert("Entro a getFeedback Data forEach");
         if (invitation.skills != null || invitation.skills.length > 0) {
+          alert("Entro if");
           flag2 = false;
           fetch(
             `https://matter-app.herokuapp.com/api/v1/invitations/${invitation.id}/feedback`
@@ -102,12 +106,20 @@ function getFeedback() {
               }
             });
         } else if (flag2) {
+          alert("Entro else");
           let container = document.getElementById("feedback");
           container.innerHTML += `<li class="list-group-item"> <span class="ml-3"> 
                         No feedback to show 🥺</span>  </li>`;
           flag2 = false;
         }
       });
+    })
+    .then((e) => {
+      alert("Entro a THEN");
+      let container = document.getElementById("feedback");
+      container.innerHTML += `<li class="list-group-item"> <span class="ml-3"> 
+                        No feedback to show 🥺</span>  </li>`;
+      flag2 = false;
     });
 }
 
