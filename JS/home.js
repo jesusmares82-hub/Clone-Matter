@@ -66,5 +66,67 @@ function loadData() {
     container2.innerHTML += `${userEmail}`;
   }
 }
+
+function getFeedback() {
+  let flag = true;
+  fetch(`https://matter-app.herokuapp.com/api/v1/users/${userId}/invitations`)
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((invitation) => {
+        if (invitation.skills != null && invitation.skills.length > 0) {
+          fetch(
+            `https://matter-app.herokuapp.com/api/v1/invitations/${invitation.id}/feedback`
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              if (data) {
+                let skillName = "communication.svg";
+
+                data.forEach((feedback) => {
+                  if (feedback.name === "Comunicación") {
+                    skillName = "communication.svg";
+                  } else if (feedback.name === "Empatía") {
+                    skillName = "empathy.svg";
+                  } else if (feedback.name === "Liderazgo") {
+                    skillName = "leadership.svg";
+                  }
+                  let container = document.getElementById("feedback");
+                  container.innerHTML += `<li class="list-group-item"> <img
+                        class="img-fluid mt-1 mb-1"
+                        style="width: 1.5rem"
+                        src="./IMG/${skillName}"
+                        alt=""
+                      /> <span class="ml-3 color-feedback">${invitation.user_invited.name} evaluo tu skill ${feedback.name} con un score de: ${feedback.pivot.score} ✔️</span>  </li>`;
+                });
+              }
+            });
+          flag = false;
+        } else if (flag) {
+          let container = document.getElementById("feedback");
+          container.innerHTML += `<li class="list-group-item"> <span class="ml-3"> 
+                        No feedback to show 🥺</span>  </li>`;
+          flag = false;
+        }
+      });
+    });
+}
+
+function receivedInvitations() {
+  let containerReceviedInvitations = document.getElementById("evaluateSkill");
+  let invitationCount = 0;
+  fetch(
+    `https://matter-app.herokuapp.com/api/v1/users/${userId}/feedback-invitations`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((invitation) => {
+        invitationCount++;
+      });
+      containerReceviedInvitations.innerHTML += `<a href="./evaluate-skills.html" style="text-decoration:none">Pending Requests <i class="fas fa-external-link-alt"></i>  <span class="ml-5"> ${invitationCount}</span> </a>`;
+    });
+}
+
 authenticated();
 loadData();
+getFeedback();
+receivedInvitations();

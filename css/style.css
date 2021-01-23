@@ -31,7 +31,7 @@
 
 .burbuja {
   border-radius: 50%;
-  background-image: url("../IMG/code.svg");
+  background-image: url("../IMG/supportivenes.svg");
   opacity: 0.3;
 
   position: absolute;
@@ -104,12 +104,12 @@
 }
 
 .burbuja:nth-child(8) {
-  width: 80;
+  width: 80px;
   height: 80px;
   background-image: url("../IMG/code.svg");
-  left: 5%;
-  animation-duration: 5s;
-  animation-delay: 5s;
+  left: 25%;
+  animation-duration: 4s;
+  animation-delay: 2s;
 }
 
 .burbuja:nth-child(9) {
