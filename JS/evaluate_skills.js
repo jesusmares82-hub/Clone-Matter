@@ -3,6 +3,22 @@ const userId = JSON.parse(localStorage.getItem("userID"));
 const userName = JSON.parse(localStorage.getItem("userName"));
 const userEmail = JSON.parse(localStorage.getItem("userEmail"));
 
+function authenticated() {
+  if (userAuthenticated) {
+    if (flag) {
+      if (userName) {
+        alert("Welcome " + userName + " 😀");
+      } else {
+        alert("Welcome " + userEmail + " 😀");
+      }
+    }
+    localStorage.setItem("flag", JSON.stringify(false));
+  } else {
+    alert("No has iniciado sesión, por favor inicia sesión. 🚫");
+    window.location = "./index.html";
+  }
+}
+
 function printReceivedInvitations() {
   fetch(
     `https://matter-app.herokuapp.com/api/v1/users/${userId}/feedback-invitations`
@@ -100,3 +116,5 @@ function sendFeedback(invitationId) {
   }
 }
 window.sendFeedback = sendFeedback;
+
+authenticated();
