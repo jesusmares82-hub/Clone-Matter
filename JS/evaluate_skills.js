@@ -5,13 +5,7 @@ const userEmail = JSON.parse(localStorage.getItem("userEmail"));
 
 function authenticated() {
   if (userAuthenticated) {
-    if (flag) {
-      if (userName) {
-        alert("Welcome " + userName + " 😀");
-      } else {
-        alert("Welcome " + userEmail + " 😀");
-      }
-    }
+    printReceivedInvitations();
     localStorage.setItem("flag", JSON.stringify(false));
   } else {
     alert("No has iniciado sesión, por favor inicia sesión. 🚫");
@@ -93,8 +87,6 @@ function evaluateSkill(invitationId, skillId, score) {
     }
   );
 }
-
-printReceivedInvitations();
 
 function sendFeedback(invitationId) {
   const form = document.getElementById(`form-feedback${invitationId}`);

@@ -9,13 +9,9 @@ console.log(userId);
 
 function authenticated() {
   if (userAuthenticated) {
-    if (flag) {
-      if (userName) {
-        alert("Welcome " + userName + " 😀");
-      } else {
-        alert("Welcome " + userEmail + " 😀");
-      }
-    }
+    loadData();
+    getFeedback();
+    receivedInvitations();
     localStorage.setItem("flag", JSON.stringify(false));
   } else {
     alert("No has iniciado sesión, por favor inicia sesión. 🚫");
@@ -137,6 +133,3 @@ function receivedInvitations() {
 }
 
 authenticated();
-loadData();
-getFeedback();
-receivedInvitations();

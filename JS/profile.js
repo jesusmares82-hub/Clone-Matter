@@ -11,13 +11,7 @@ console.log(userId);
 
 function authenticated() {
   if (userAuthenticated) {
-    if (flag) {
-      if (userName) {
-        alert("Bienvenido " + userName + " 😀");
-      } else {
-        alert("Bienvenido " + userEmail + " 😀");
-      }
-    }
+    loadData();
     localStorage.setItem("flag", JSON.stringify(false));
   } else {
     alert("No has iniciado sesión, por favor inicia sesión. 🚫");
@@ -73,4 +67,3 @@ function loadData() {
   }
 }
 authenticated();
-loadData();
