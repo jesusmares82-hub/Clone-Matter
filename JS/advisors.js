@@ -50,7 +50,6 @@ function loadData2() {
   fetch(`https://matter-app.herokuapp.com/api/v1/users/${userId}/invitations`)
     .then((response) => response.json())
     .then((data) => {
-      console.log("Atencion " + data[0].user_invited.email);
       let i = 0;
       data.forEach((element) => {
         container.innerHTML += `<li class="list-group-item"> <a href="#" style="text-decoration:none"> <img
