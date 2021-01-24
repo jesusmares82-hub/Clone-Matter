@@ -2,6 +2,7 @@ const userId = JSON.parse(localStorage.getItem("userID"));
 const userName = JSON.parse(localStorage.getItem("userName"));
 const userEmail = JSON.parse(localStorage.getItem("userEmail"));
 userAuthenticated = JSON.parse(localStorage.getItem("userAuthenticated"));
+flag2 = JSON.parse(localStorage.getItem("flag2"));
 console.log(userId);
 
 function authenticated() {

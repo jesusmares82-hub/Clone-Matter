@@ -110,7 +110,8 @@ function sendFeedback(invitationId) {
   const statusResponse = JSON.parse(localStorage.getItem("statusResponse"));
   if (statusResponse === 200) {
     alert("Feedback sent successfully");
-  } else {
+  } else if (statusResponse === 204) {
+  } else if (statusResponse === 500) {
     alert("We had an error sending feedback");
   }
 }
