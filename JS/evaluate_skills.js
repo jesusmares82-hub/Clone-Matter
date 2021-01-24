@@ -29,22 +29,29 @@ function printReceivedInvitations() {
 
 function printInvitations(containerId, invitations, skills) {
   const container = document.getElementById("invitations-container");
+  console.log(invitations);
+
   invitations.forEach((invitation) => {
-    container.innerHTML += `<div class="card card-matter mt-3">
+    fetch(`https://matter-app.herokuapp.com/api/v1/users/${invitation.user_id}`)
+      .then((response) => response.json())
+      .then((users) => {
+        console.log(users);
+        container.innerHTML += `<div class="card card-matter mt-3">
                                         <div class="card-body">
                                             <form id="form-feedback${
                                               invitation.id
                                             }" onsubmit="event.preventDefault(), sendFeedback(${
-      invitation.id
-    })">
+          invitation.id
+        })">
                                                 <p>Give feedback to ${
-                                                  invitation.user_invited.name
+                                                  users.name
                                                 }</p>
                                                 ${this.htmlAnswers(skills)}
                                                 <button class="btn btn-primary">Send Feedback</button>
                                             </form>
                                         </div>
                                     </div>`;
+      });
   });
 }
 

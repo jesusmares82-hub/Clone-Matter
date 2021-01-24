@@ -151,13 +151,14 @@ function registerUser() {
       .then((response) => response.json())
       .then((data) => {
         alert("Register Success ✅");
+        document.getElementById("form-register").reset();
         finishRegister();
       })
       .catch((e) => {
         alert("Somethings Wrong ❌");
+        document.getElementById("form-register").reset();
       });
   });
-  document.getElementById("form-register").reset();
 }
 
 const form_login = document.querySelector("#form-login");

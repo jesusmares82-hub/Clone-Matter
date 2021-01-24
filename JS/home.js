@@ -108,7 +108,6 @@ function getFeedback() {
     })
     .then((e) => {
       if (flag2) {
-        alert("Entro a if de then");
         let container = document.getElementById("feedback");
         container.innerHTML += `<li class="list-group-item"> <span class="ml-3"> 
                         No feedback to show 🥺</span>  </li>`;
