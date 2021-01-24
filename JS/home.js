@@ -69,9 +69,8 @@ function getFeedback() {
     .then((response) => response.json())
     .then((data) => {
       data.forEach((invitation) => {
-        flag2 = false;
-
         if (invitation.skills != null || invitation.skills.length > 0) {
+          flag2 = false;
           fetch(
             `https://matter-app.herokuapp.com/api/v1/invitations/${invitation.id}/feedback`
           )
