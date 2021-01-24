@@ -37,17 +37,17 @@ function printInvitations(containerId, invitations, skills) {
       .then((users) => {
         console.log(users);
         container.innerHTML += `<div class="card card-matter mt-3">
-                                        <div class="card-body">
+                                        <div class="card-body  text-center">
                                             <form id="form-feedback${
                                               invitation.id
                                             }" onsubmit="event.preventDefault(), sendFeedback(${
           invitation.id
         })">
-                                                <p>Give feedback to ${
+                                                <p class="font-weight-bold">Give feedback to <mark>${
                                                   users.name
-                                                }</p>
+                                                }</mark></p>
                                                 ${this.htmlAnswers(skills)}
-                                                <button class="btn btn-primary">Send Feedback</button>
+                                                <button class="btn btn-primary mt-2">Send Feedback</button>
                                             </form>
                                         </div>
                                     </div>`;
@@ -58,7 +58,7 @@ function printInvitations(containerId, invitations, skills) {
 function htmlAnswers(skills) {
   let html = ``;
   skills.forEach((skill, index) => {
-    html += `<h6>${skill.name}</h6>
+    html += `<h6 class="mt-2">${skill.name}</h6>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="score${index}" id="one${index}" data-skill="${skill.id}" value="1" checked>
                 <label class="form-check-label" for="one${index}">

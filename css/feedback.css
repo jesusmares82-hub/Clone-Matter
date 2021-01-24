@@ -11,6 +11,7 @@
 .wallpaper-bg {
   background-image: url("../IMG/Skills_page.jpg");
   background-size: cover;
+  background-repeat: repeat;
   background-position: center;
 }
 

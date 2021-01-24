@@ -188,6 +188,7 @@ form_login.addEventListener("submit", (event) => {
   })
     .then((response) => response.json())
     .then((data) => {
+      localStorage.setItem("flag2", JSON.stringify(true));
       loginValidate(data);
     })
     .catch((e) => {

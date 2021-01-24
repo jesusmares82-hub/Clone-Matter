@@ -5,7 +5,6 @@ userAuthenticated = JSON.parse(localStorage.getItem("userAuthenticated"));
 let email;
 flag = JSON.parse(localStorage.getItem("flag"));
 flag2 = JSON.parse(localStorage.getItem("flag2"));
-console.log(userId);
 
 function authenticated() {
   if (userAuthenticated) {
@@ -68,42 +67,48 @@ function getFeedback() {
   fetch(`https://matter-app.herokuapp.com/api/v1/users/${userId}/invitations`)
     .then((response) => response.json())
     .then((data) => {
-      data.forEach((invitation) => {
-        if (invitation.skills != null || invitation.skills.length > 0) {
-          flag2 = false;
-          fetch(
-            `https://matter-app.herokuapp.com/api/v1/invitations/${invitation.id}/feedback`
-          )
-            .then((response) => response.json())
-            .then((data) => {
-              if (data) {
-                let skillName = "communication.svg";
+      console.log(data[0].skills.length);
+      console.log(flag2);
+      if (data[0].skills.length != 0) {
+        data.forEach((invitation) => {
+          if (invitation.skills != null || invitation.skills.length > 0) {
+            flag2 = false;
+            fetch(
+              `https://matter-app.herokuapp.com/api/v1/invitations/${invitation.id}/feedback`
+            )
+              .then((response) => response.json())
+              .then((data) => {
+                if (data) {
+                  let skillName = "communication.svg";
 
-                data.forEach((feedback) => {
-                  if (feedback.name === "Comunicación") {
-                    skillName = "communication.svg";
-                  } else if (feedback.name === "Empatía") {
-                    skillName = "empathy.svg";
-                  } else if (feedback.name === "Liderazgo") {
-                    skillName = "leadership.svg";
-                  }
-                  let container = document.getElementById("feedback");
-                  container.innerHTML += `<li class="list-group-item"> <img
+                  data.forEach((feedback) => {
+                    if (feedback.name === "Comunicación") {
+                      skillName = "communication.svg";
+                    } else if (feedback.name === "Empatía") {
+                      skillName = "empathy.svg";
+                    } else if (feedback.name === "Liderazgo") {
+                      skillName = "leadership.svg";
+                    }
+                    let container = document.getElementById("feedback");
+                    container.innerHTML += `<li class="list-group-item"> <img
                         class="img-fluid mt-1 mb-1"
                         style="width: 1.5rem"
                         src="./IMG/${skillName}"
                         alt=""
                       /> <span class="ml-3 color-feedback">${invitation.user_invited.name} evaluo tu skill ${feedback.name} con un score de: ${feedback.pivot.score} ✔️</span>  </li>`;
-                });
-              }
-            });
-        } else if (flag2) {
+                  });
+                }
+              });
+          }
+        });
+      } else {
+        if (flag2) {
           let container = document.getElementById("feedback");
           container.innerHTML += `<li class="list-group-item"> <span class="ml-3"> 
                         No feedback to show 🥺</span>  </li>`;
           flag2 = false;
         }
-      });
+      }
     })
     .then((e) => {
       if (flag2) {
